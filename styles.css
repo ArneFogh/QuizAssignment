@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sora', sans-serif;
+}
+
+body{
+    background: linear-gradient(-45deg, #e76b46, #b92531, #1d5fab, #178a6f);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.start-button, .rules-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.start-button button{
+    font-size: 30px;
+    font-weight: 700;
+    color: #252525;
+    padding: 17px 27px;
+    outline: none;
+    border-color: white;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+}
+
+button:hover{
+    border-color: cornflowerblue;
+}
+
+.rules-box{
+    width: 770px;
+    background: white;
+    border-radius: 10px;
+}
+
+.rules-box .rules-title{
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #252525;
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.rules-box .rules-list{
+    padding: 20px 40px;
+}
+
+.rules-box .rules-list .rules{
+    margin: 7px 0;
+    font-size: 20px;
+
+}
+.rules-box .rules-list .rules span{
+    color: #b92531;
+    font-weight: bolder;
+}
+
+.rules-box .control-buttons{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-top: 1px solid #252525;
+}
+
+.rules-box .control-buttons button{
+    height: 45px;
+    width: 115px;
+    border-radius: 15px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.start-button button:hover{
+    background-color: #1d5fab;
+    color: white;
+}
+
+.control-buttons button.exit{
+    color: #b92531;
+    border-color: #b92531;
+}
+
+.control-buttons button.next{
+    color: #178a6f;
+    border-color: #178a6f;
+}
+
+.control-buttons button.next:hover{
+    color: white;
+    border-color: #178a6f;
+    box-shadow: #178a6f;
+    background-color: #178a6f;
+}
+
+.control-buttons button.exit:hover{
+    color: white;
+    border-color: #b92531;
+    box-shadow: #b92531;
+    background-color: #b92531;
+}
