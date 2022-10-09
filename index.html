@@ -1,30 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Quiz</title>
+    <title>Arne's quiz</title>
   <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.42/Tone.js" integrity="sha512-jP8QvBXowc1rZhRvIR8Byb1ozO1xd41D3qwCCqgLObgPd4XXXh6Bws0gthw94jq0F8PWyGwIe+PaP0WJVihHZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-    <div class="start-button"><button>Click here to start quiz</button></div>
+    <div class="start-button"><button>Tryk her for at starte quizzen</button></div>
 
     <div class="rules-box">
         <div class="rules-title">
-            <span>The rules for the quiz</span>
+            <span>Reglerne for quizzen</span>
         </div>
+        <!-- A list over the rules for the quiz -->
         <div class="rules-list">
-            <div class="rules"><span>1.</span> You will only have <span>10 seconds</span> to complete each question</div>
-            <div class="rules"><span>2.</span> You only have one try per question</div>
-            <div class="rules"><span>3.</span> Your score will <span>increase</span> the faster you answer the question</div>
-            <div class="rules"><span>4.</span> When you have started the quiz, you have to finish it</div>
-            <div class="rules"><span>5.</span> You will earn point upon choosing the right answer, <span>but be quick!</span></div>
+            <div class="rules"><span>1.</span> Du vil have <span>15 sekunder</span> til at svare på de forskellige spørgsmål!</div>
+            <div class="rules"><span>2.</span> Du kan max få <span>2</span> points pr. rigtigt svar</div>
+            <div class="rules"><span>3.</span> Du mister points hver gang du svarer forkert</div>
+            <div class="rules"><span>4.</span> Du får ekstra points for at svare rigtigt hurtigt</div>
+            <div class="rules"><span>5.</span> Du kan max score <span>40 points</span>, men du skal <span>skynde dig!</span></div>
         </div>
+        <!-- The control buttons to navigate around the quiz -->
         <div class="control-buttons">
-            <button class="exit">Quit quiz</button>
-            <button class="next">Ready</button>
+            <button class="exit">Afslut</button>
+            <button class="ready">Klar</button>
         </div>
 </div>
+
+    <div class="quiz_box">
+        <header>
+            <!-- The title for the quiz -->
+            <div class="question_title">General viden quizzen af Arne</div>
+            <!-- The timer that counts down when a quiz has begun -->
+            <div class="timer">
+                <div class="timer_text">Tid tilbage:</div>
+                <div class="timer_sec">15</div>
+            </div>
+        </header>
+        <section>
+            <div class="question_text">
+               <!-- This is where each question is inserted from javascript -->
+            </div>
+            <div class="answer_list">
+           <!-- Here are the answers inserted from the javascript file -->
+            </div>
+        </section>
+
+        <footer>
+            <div class="total_question_que">
+               <!-- Here is the visual question counter inserted with javascript -->
+            </div>
+            <button class="next_btn">Næste</button>
+        </footer>
+    </div>
+
+    <div class="result_box">
+        <div class="complete_text">Du har klaret quizzen</div>
+        <div class="point_text">
+           <!-- Here is the quote that tells you how many questions you got right at the end, inserted from javascript -->
+        </div>
+        <div class="buttons">
+            <button class="quit">Færdig</button>
+        </div>
+    </div>
+
+    <main>
+        <div class="chartBox">
+            <canvas id="chart"></canvas>
+        </div>
+    </main>
+
 <script src="main.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+/*This gives a standard css configuration to everything in it*/
 *{
     margin: 0;
     padding: 0;
@@ -5,6 +6,7 @@
     font-family: 'Sora', sans-serif;
 }
 
+/*This is to style everything inside the body */
 body{
     background: linear-gradient(-45deg, #e76b46, #b92531, #1d5fab, #178a6f);
     background-size: 400% 400%;
@@ -15,7 +17,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-
+/*This is the gradient background code */
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -28,13 +30,31 @@ body{
     }
 }
 
-.start-button, .rules-box{
+/*This will position all of the boxes below */
+.start-button, .rules-box, .quiz_box, .result_box{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, 50%);
+    transition: all 0.3s ease;
 }
 
+/*This will make the start button disappear after the startbutton has been clicked */
+.start-button button.clickStartBtn{
+    opacity: 0;
+    transform: translate(-50%, 50%) scale(1);
+    pointer-events: none;
+}
+
+/*When a button has been clicked the individual boxes will show in that order */
+.rules-box.clickRulesBox, .quiz_box.clickQuizBox, .result_box.clickResultBox{
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 50%) scale(1);
+}
+
+/*Styling start button */
 .start-button button{
     font-size: 30px;
     font-weight: 700;
@@ -47,41 +67,54 @@ body{
     cursor: pointer;
 }
 
+/*Styling start button when you hover over it */
 button:hover{
-    border-color: cornflowerblue;
+    border-color: #1780d5;
 }
 
+/*Styling the rules box */
 .rules-box{
     width: 770px;
     background: white;
     border-radius: 10px;
+    opacity: 0;
+    pointer-events: none;
+    top: 10%;
+    transform: translate(-50%, 50%) scale(0.9);
+    box-shadow: 0 0 20px 2px black;
 }
 
+/*Styling the title text in the rules box */
 .rules-box .rules-title{
-    height: 60px;
+    height: 65px;
     width: 100%;
-    border-bottom: 1px solid #252525;
+    border-bottom: 1px solid #1d5fab;
     display: flex;
     align-items: center;
-    padding: 10px 30px;
+    padding: 15px 40px;
     font-size: 23px;
     font-weight: 700;
+    color: #1D9997;
 }
 
+/* Spacing between the rules */
 .rules-box .rules-list{
-    padding: 20px 40px;
+    padding: 30px 40px;
 }
 
+/* The rules */
 .rules-box .rules-list .rules{
-    margin: 7px 0;
+    margin: 13px 10px;
     font-size: 20px;
-
 }
+
+/* Styling the text in between the span tags in the rules box*/
 .rules-box .rules-list .rules span{
-    color: #b92531;
+    color: #E4572E;
     font-weight: bolder;
 }
 
+/*Styling the control buttons */
 .rules-box .control-buttons{
     height: 60px;
     display: flex;
@@ -111,12 +144,12 @@ button:hover{
     border-color: #b92531;
 }
 
-.control-buttons button.next{
+.control-buttons button.ready{
     color: #178a6f;
     border-color: #178a6f;
 }
 
-.control-buttons button.next:hover{
+.control-buttons button.ready:hover{
     color: white;
     border-color: #178a6f;
     box-shadow: #178a6f;
@@ -128,4 +161,245 @@ button:hover{
     border-color: #b92531;
     box-shadow: #b92531;
     background-color: #b92531;
+}
+
+.chartBox{
+    width: 220px;
+    height: 600px;
+    background: white;
+    position: absolute;
+    top: 60px;
+    left: 35px;
+    margin: 0;
+    padding: 0;
+    border-radius: 25px;
+}
+
+.quiz_box{
+    width: 740px;
+    background: white;
+    border-radius: 15px;
+    opacity: 0;
+    pointer-events: none;
+    top: -10%;
+    transform: translate(-50%, 50%) scale(0.9);
+    box-shadow: 0 0 20px 2px black;
+}
+
+.quiz_box header{
+    position: relative;
+    z-index: 99;
+    height: 70px;
+    padding: 0 30px;
+    background: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 3px 5px 1px rgb(0,0,0,0.1);
+}
+
+.quiz_box header .question_title{
+    font-size: 22px;
+    font-weight: 700;
+    color: #1d5fab;
+}
+
+.quiz_box header .question_title:hover{
+    color: cornflowerblue;
+}
+
+.quiz_box header .timer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+    height: 45px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 15px;
+    background: rgba(0,0,0,0.1);
+    padding: 0 8px;
+}
+
+.quiz_box header .timer .timer_text{
+    font-weight: 500;
+    font-size: 13px;
+    user-select: none;
+    color: #1d5fab;
+}
+
+.quiz_box header .timer .timer_text:hover{
+    font-weight: bold;
+    color: cornflowerblue;
+}
+
+.quiz_box header .timer .timer_sec{
+    font-size: 15px;
+    font-weight: 700;
+    background: rgba(0,0,0,0.1);
+    width: 45px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    padding: 0 5px;
+    border: 1px solid rgba(0,0,0,0.1);
+    user-select: none;
+    color: #1d5fab;
+}
+
+.quiz_box header .timer .timer_sec:hover{
+    color: cornflowerblue;
+}
+
+.quiz_box section{
+    padding: 25px 30px 20px 30px;
+    background: white;
+}
+
+.quiz_box section .question_text{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.quiz_box section .answer_list{
+    padding: 20px 0;
+    display: block;
+}
+
+section .answer_list .answers{
+    background: #1D9997;
+    color: white;
+    border-radius: 15px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.answer_list .answers:hover{
+    color: white;
+    background: #34C7C4;
+    border-color: #266161;
+}
+
+.answer_list .answers:last-child{
+    margin-bottom: 0;
+}
+
+.answer_list .answers.correct{
+    color: white;
+    background: #7AB642;
+    border: 1px solid #495B33;
+}
+
+.answer_list .answers.incorrect{
+    color: white;
+    background: #E4572E;
+    border: 1px solid #B7340A;
+}
+
+.answer_list .answers.turnedOff{
+    pointer-events: none;
+}
+
+.quiz_box footer{
+    height: 60px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quiz_box footer .total_question_que span{
+    display: flex;
+    user-select: none;
+}
+
+footer .total_question_que span p{
+    font-weight: 500;
+    padding: 0 5px;
+}
+
+footer .total_question_que span p:hover{
+    font-weight: bold;
+}
+
+.total_question_que span p:first-child{
+    padding-left: 0;
+}
+
+footer .next_btn{
+    display: none;
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-weight: 500;
+    outline: none;
+    color: white;
+    background: #1d5fab;
+    border-radius: 15px;
+    border: 1px solid #1d5fab;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+footer .next_btn:hover{
+    background: #1099d3;
+}
+
+.result_box{
+    background: white;
+    width: 560px;
+    padding: 25px 30px;
+    border-radius: 15px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    top: 20%;
+    transform: translate(-50%, 50%) scale(0.9);
+}
+
+.result_box .complete_text{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.result_box .point_text span{
+    display: flex;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.point_text span p{
+    font-weight: 700;
+    padding: 0 4px;
+}
+
+.result_box .buttons{
+    display: flex;
+    margin: 20px 0;
+}
+
+.result_box .buttons button{
+    margin: 0 10px;
+    height: 45px;
+    padding: 0 18px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
